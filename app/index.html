@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>AI 智慧高齡生活助理</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <div class="brand">ELJX｜AI 智慧高齡生活助理</div>
+  <button onclick="showPage('family')">家屬端</button>
+</header>
+
+<main>
+  <section class="hero">
+    <div>
+      <p class="tag">Azure Functions + OpenAI API 真實可部署版</p>
+      <h1>高齡 AI 生活助理 App</h1>
+      <p>可實際呼叫 AI 回答、健康分析、用藥提醒、SOS 通報紀錄。</p>
+      <button onclick="showPage('assistant')">開始使用</button>
+    </div>
+    <div class="status-card">
+      <span>目前狀態</span>
+      <b id="mainStatus">🟢 正常</b>
+      <small id="mainNote">等待資料更新</small>
+    </div>
+  </section>
+
+  <section id="assistant" class="panel">
+    <h2>AI 陪伴助理</h2>
+    <div id="chat" class="chat"></div>
+    <div class="row">
+      <input id="msg" placeholder="例如：我今天很孤單、提醒我吃藥、我身體不舒服">
+      <button onclick="sendMessage()">送出</button>
+      <button class="gray" onclick="voiceInput()">🎙 語音</button>
+      <button class="danger" onclick="sendSOS()">SOS</button>
+    </div>
+  </section>
+
+  <section class="grid">
+    <div class="panel">
+      <h2>健康資料</h2>
+      <label>心率 bpm<input id="heart" type="number" value="72"></label>
+      <label>收縮壓<input id="sys" type="number" value="120"></label>
+      <label>舒張壓<input id="dia" type="number" value="80"></label>
+      <label>步數<input id="steps" type="number" value="5200"></label>
+      <button onclick="saveHealth()">送出健康分析</button>
+      <div id="healthResult" class="result">尚未分析</div>
+    </div>
+
+    <div class="panel">
+      <h2>用藥提醒</h2>
+      <label>內容<input id="remText" value="晚上 8 點服用高血壓藥"></label>
+      <label>時間<input id="remTime" type="time" value="20:00"></label>
+      <button onclick="addReminder()">新增提醒</button>
+      <ul id="reminders"></ul>
+    </div>
+  </section>
+
+  <section id="family" class="panel">
+    <h2>家屬關懷端</h2>
+    <div class="family">
+      <div><span>長者狀態</span><b id="familyStatus">🟢 正常</b></div>
+      <div><span>最後互動</span><b id="lastTalk">尚無</b></div>
+      <div><span>提醒數</span><b id="remCount">0</b></div>
+      <div><span>SOS紀錄</span><b id="sosCount">0</b></div>
+    </div>
+    <h3>通知紀錄</h3>
+    <ul id="logs"></ul>
+  </section>
+</main>
+
+<footer>致理科技大學｜AI-Powered Smart Living Assistant Platform for Seniors</footer>
+<script src="app.js"></script>
+</body>
+</html>
