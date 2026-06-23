@@ -1,9 +1,0 @@
-{
-  "name": "elderly-ai-functions",
-  "version": "1.0.0",
-  "type": "commonjs",
-  "dependencies": {
-    "@azure/functions": "^4.5.0",
-    "openai": "^4.77.0"
-  }
-}

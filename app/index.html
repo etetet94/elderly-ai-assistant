@@ -4,6 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>AI 智慧高齡生活助理</title>
+  <meta name="theme-color" content="#0f766e">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -15,10 +17,11 @@
 <main>
   <section class="hero">
     <div>
-      <p class="tag">Azure Functions + OpenAI API 真實可部署版</p>
+      <p class="tag">PWA 可安裝 App｜功能可展示</p>
       <h1>高齡 AI 生活助理 App</h1>
-      <p>可實際呼叫 AI 回答、健康分析、用藥提醒、SOS 通報紀錄。</p>
+      <p>智慧陪伴、健康分析、用藥提醒、SOS 通報、家屬端紀錄皆可正常使用。</p>
       <button onclick="showPage('assistant')">開始使用</button>
+      <button class="gray" id="installBtn" style="display:none">安裝 App</button>
     </div>
     <div class="status-card">
       <span>目前狀態</span>
@@ -31,7 +34,7 @@
     <h2>AI 陪伴助理</h2>
     <div id="chat" class="chat"></div>
     <div class="row">
-      <input id="msg" placeholder="例如：我今天很孤單、提醒我吃藥、我身體不舒服">
+      <input id="msg" placeholder="例如：我今天頭暈、提醒我吃藥、我很孤單">
       <button onclick="sendMessage()">送出</button>
       <button class="gray" onclick="voiceInput()">🎙 語音</button>
       <button class="danger" onclick="sendSOS()">SOS</button>
@@ -73,5 +76,10 @@
 
 <footer>致理科技大學｜AI-Powered Smart Living Assistant Platform for Seniors</footer>
 <script src="app.js"></script>
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("sw.js"));
+}
+</script>
 </body>
 </html>
